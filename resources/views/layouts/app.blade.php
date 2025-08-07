@@ -10,8 +10,9 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{ asset('images/logo.png') }}" rel="icon">
+  <!-- <link href="assets/img/favicon.png" rel="icon"> -->
+  <!-- <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -25,6 +26,13 @@
   <link href="{{ asset('quill/quill.bubble.css') }}" rel="stylesheet">
   <link href="{{ asset('remixicon/remixicon.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+<script src="{{ asset('js/jquery.min.js') }}"></script>        <!-- jQuery first -->
+<script src="{{ asset('js/popper.min.js') }}"></script>       <!-- Popper next (Bootstrap tooltip/menus) -->
+<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script> <!-- Bootstrap with Popper included -->
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>    <!-- (Optional) Bootstrap without Popper -->
+<script src="{{ asset('js/main.js') }}"></script>             <!-- Your custom scripts last -->
+
 
   <!-- Template Main CSS File -->
   
@@ -44,8 +52,7 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
-        <img src="assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">NiceAdmin</span>
+        <img src="{{ asset('images/logo.png') }}" alt="">
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -173,18 +180,7 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/chart.js/chart.umd.js"></script>
-  <script src="assets/vendor/echarts/echarts.min.js"></script>
-  <script src="assets/vendor/quill/quill.js"></script>
-  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  
 
 </body>
 

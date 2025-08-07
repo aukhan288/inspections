@@ -23,5 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AdminSeeder::class);
         $this->call(MeasureSeeder::class);
         $this->call(QuestionSeeder::class);
+        $this->call(TagSeeder::class);
+        $this->call(OptionSeeder::class);
     }
 }

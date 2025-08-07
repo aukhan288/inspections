@@ -13,4 +13,14 @@ class Measure extends Model
         'name',
         'description',
     ];
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+
+    public function subTags()
+    {
+        return $this->belongsToMany(SubTag::class);
+    }
 }

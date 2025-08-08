@@ -20,12 +20,12 @@ body {
 }
 
 a {
-  color: #4154f1;
+  color: #103B38;
   text-decoration: none;
 }
 
 a:hover {
-  color: #717ff5;
+  color: #144a47;
   text-decoration: none;
 }
 
@@ -1231,3 +1231,6 @@ h6 {
   font-size: 13px;
   color: #012970;
 }
+/* cutom */
+
+

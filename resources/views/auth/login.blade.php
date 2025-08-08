@@ -9,17 +9,38 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    
 
     <!-- Fonts -->
  
     <!-- Scripts -->
+     <style>
+        body{
+            background: #103B38;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .btn-primary{
+  background-color: #103B38 !important;
+  border-color: #103B38 !important;
+}
+.btn-primary:hover{
+  background-color: #144845 !important;
+}
+.btn-link {
+    color: #F8B552 !important;
+}
+.form-control:focus{
+  box-shadow:none;
+}
+     </style>
 </head>
 <body>
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-4">
             <div class="card">
-
+                <img src="{{ asset('images/logo.png') }}" />
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
@@ -27,7 +48,7 @@
                         <div class="row mb-3">
                             
                             <div class="col-md-12">
-                                <label for="email" class="col-md-12col-form-label">{{ __('Email Address') }}</label>
+                                <label for="email" class="col-md-12col-form-label">{{ __('Email') }}</label>
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')

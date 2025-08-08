@@ -26,12 +26,7 @@
   <link href="{{ asset('quill/quill.bubble.css') }}" rel="stylesheet">
   <link href="{{ asset('remixicon/remixicon.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-
-<script src="{{ asset('js/jquery.min.js') }}"></script>        <!-- jQuery first -->
-<script src="{{ asset('js/popper.min.js') }}"></script>       <!-- Popper next (Bootstrap tooltip/menus) -->
-<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script> <!-- Bootstrap with Popper included -->
-<script src="{{ asset('js/bootstrap.min.js') }}"></script>    <!-- (Optional) Bootstrap without Popper -->
-<script src="{{ asset('js/main.js') }}"></script>             <!-- Your custom scripts last -->
+  <link rel="stylesheet" href="{{ asset('css/tables.css') }}">
 
 
   <!-- Template Main CSS File -->
@@ -141,6 +136,12 @@
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
+      <li class="nav-item">
+        <a class="nav-link " href="{{ url('/users') }}">
+          <i class="bi bi-grid"></i>
+          <span>User</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
 
     </ul>
 
@@ -158,10 +159,10 @@
       </nav>
     </div><!-- End Page Title -->
 
-    <section class="section dashboard">
+    <section class="section">
+  @yield('content')
 
     </section>
-
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
@@ -180,7 +181,14 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  
+
+  <script src="{{ asset('js/popper.min.js') }}"></script>       <!-- Popper next (Bootstrap tooltip/menus) -->
+<script src="{{ asset('js/jquery.min.js') }}"></script>        <!-- jQuery first -->
+<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script> <!-- Bootstrap with Popper included -->
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>    <!-- (Optional) Bootstrap without Popper -->
+<script src="{{ asset('js/tables.js') }}"></script>             <!-- Your custom scripts last -->
+<script src="{{ asset('js/main.js') }}"></script>             <!-- Your custom scripts last -->
+
 
 </body>
 

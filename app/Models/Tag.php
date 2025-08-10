@@ -11,11 +11,11 @@ class Tag extends Model
 
     protected $fillable = [
         'name',
-        'haseoptons',
+        'haseoptions',
     ];
 
-    public function measures()
+    public function options()
     {
-        return $this->belongsToMany(Measure::class);
+        return $this->hasMany(Option::class);
     }
 }

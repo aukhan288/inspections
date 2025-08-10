@@ -25,8 +25,18 @@
   <link href="{{ asset('quill/quill.snow.css') }}" rel="stylesheet">
   <link href="{{ asset('quill/quill.bubble.css') }}" rel="stylesheet">
   <link href="{{ asset('remixicon/remixicon.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('css/tables.css') }}">
+
+    <script src="{{ asset('js/popper.min.js') }}"></script>       <!-- Popper next (Bootstrap tooltip/menus) -->
+<script src="{{ asset('js/jquery.min.js') }}"></script>        <!-- jQuery first -->
+<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script> <!-- Bootstrap with Popper included -->
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>    <!-- (Optional) Bootstrap without Popper -->
+<script src="{{ asset('js/tables.js') }}"></script>             <!-- Your custom scripts last -->
+<script src="{{ asset('js/select2.min.js') }}"></script>             <!-- Your custom scripts last -->
+<script src="{{ asset('js/main.js') }}"></script>             <!-- Your custom scripts last -->
+
 
 
   <!-- Template Main CSS File -->
@@ -142,6 +152,12 @@
           <span>User</span>
         </a>
       </li><!-- End Dashboard Nav -->
+      <li class="nav-item">
+        <a class="nav-link " href="{{ url('/operations') }}">
+          <i class="bi bi-grid"></i>
+          <span>Operations</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
 
     </ul>
 
@@ -149,15 +165,7 @@
 
   <main id="main" class="main">
 
-    <div class="pagetitle">
-      <h1>Dashboard</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
+
 
     <section class="section">
   @yield('content')
@@ -182,12 +190,6 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 
-  <script src="{{ asset('js/popper.min.js') }}"></script>       <!-- Popper next (Bootstrap tooltip/menus) -->
-<script src="{{ asset('js/jquery.min.js') }}"></script>        <!-- jQuery first -->
-<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script> <!-- Bootstrap with Popper included -->
-<script src="{{ asset('js/bootstrap.min.js') }}"></script>    <!-- (Optional) Bootstrap without Popper -->
-<script src="{{ asset('js/tables.js') }}"></script>             <!-- Your custom scripts last -->
-<script src="{{ asset('js/main.js') }}"></script>             <!-- Your custom scripts last -->
 
 
 </body>

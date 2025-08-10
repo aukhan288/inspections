@@ -23,4 +23,8 @@ class Measure extends Model
     {
         return $this->belongsToMany(SubTag::class);
     }
+    public function questions()
+    {
+        return $this->hasMany(question::class);
+    }
 }

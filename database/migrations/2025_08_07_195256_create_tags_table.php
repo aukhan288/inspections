@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->boolean('haseoptons')->default(false);
+            $table->boolean('haseoptions')->default(false);
             $table->timestamps();
         });
     }

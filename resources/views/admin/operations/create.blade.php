@@ -172,6 +172,7 @@ $(document).ready(function () {
                                             const optionsJson = encodeURIComponent(JSON.stringify(tag.options || []));
                                             return `<option value="${tag.id}" 
                                                             data-hasoptions="${tag.haseoptions}" 
+                                                            data-measure="${measure.id}" 
                                                             data-options="${optionsJson}">
                                                         ${tag.name}
                                                     </option>`;
@@ -265,13 +266,17 @@ $(document).on('change', '.tag-select', function () {
     let index = $(this).data('index');
     let tagId = $(this).val();
     let hasOptions = $(this).find(':selected').data('hasoptions') == 1;
+    let measureId = $(this).find(':selected').data('measure');
+
+    // Assuming you already store the selected measure somewhere
+    // change if your measure input has a different ID
 
     // Clear existing options/subtags
     $(`#optionDiv-${index}`).empty();
     $(`#subTagDiv-${index}`).empty();
 
+    // --- Handle Options (existing functionality) ---
     if (tagId && hasOptions) {
-        // Find the selected tag in data.tags
         let selectedTag = allTags.find(tag => tag.id == tagId);
 
         if (selectedTag && selectedTag.options && selectedTag.options.length) {
@@ -287,34 +292,39 @@ $(document).on('change', '.tag-select', function () {
             $(`#optionDiv-${index}`).html(optionHtml);
         }
     }
+
+    // --- Handle SubTags (new functionality) ---
+    // if (tagId && measureId) {
+        $.ajax({
+            url: '/get-sub-tags', // adjust to your route
+            type: 'GET',
+            data: { measure_id: measureId, tag_id: tagId },
+            success: function (response) {
+                if (response.subtags && response.subtags.length) {
+                    let subTagHtml = `
+                        <label class="form-label">Sub Tags</label>
+                        <select class="form-select form-select-sm subtag-select" data-index="${index}">
+                            <option value="">Select Sub Tag</option>
+                            ${response.subtags.map(sub => 
+                                `<option value="${sub.id}">${sub.name}</option>`
+                            ).join('')}
+                        </select>
+                    `;
+                    $(`#subTagDiv-${index}`).html(subTagHtml);
+                }
+            },
+            error: function () {
+                console.error('Failed to fetch subtags');
+            }
+        });
+    // }
 });
 
-$(document).on('change', '.tag-select', function () {
-    let index = $(this).data('index');
-    let tagId = $(this).val();
-    let hasOptions = $(this).find(':selected').data('hasoptions') == 1;
 
-    $(`#optionDiv-${index}`).empty();
-    $(`#subTagDiv-${index}`).empty();
 
-    if (tagId && hasOptions) {
-        // now use global allTags instead of undefined 'data'
-        let selectedTag = allTags.find(tag => tag.id == tagId);
+// Dynamic SubTag + Options loading when a tag is selected
 
-        if (selectedTag && selectedTag.options && selectedTag.options.length) {
-            let optionHtml = `
-                <label class="form-label">Options</label>
-                <select class="form-select form-select-sm option-select" data-index="${index}">
-                    <option value="">Select Option</option>
-                    ${selectedTag.options.map(opt => 
-                        `<option value="${opt.id}">${opt.name}</option>`
-                    ).join('')}
-                </select>
-            `;
-            $(`#optionDiv-${index}`).html(optionHtml);
-        }
-    }
-});
+
 function optionChange(selectEl, index) {
     const optionId = $(selectEl).val();
     console.log(`Option selected in measure ${index}:`, optionId);

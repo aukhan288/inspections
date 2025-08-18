@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Measure;
 use App\Models\Question;
 use App\Models\Tag;
+use App\Models\SubTag;
 use App\Models\Option;
 
 class OperationController extends Controller
@@ -166,5 +167,25 @@ public function list(Request $request)
         'tags' => $tags
     ]);
 }
+
+public function getSubTags(Request $request)
+{
+    // fetch measure_id and tag_id from request
+    $measureId = $request->get('measure_id'); 
+    $tagId = $request->get('tag_id'); // if needed
+
+    if (!$measureId) {
+        return response()->json(['subtags' => []]); // return empty if no measure selected
+    }
+
+    // Example using pivot measure_sub_tags
+    $subTags = SubTag::whereHas('measures', function($q) use ($measureId) {
+        $q->where('measure_id', $measureId);
+    })->get(['id', 'name']);
+
+    return response()->json(['subtags' => $subTags]);
+}
+
+
 
 }

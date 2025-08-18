@@ -21,3 +21,4 @@ Route::post('operations/store/{id?}', [OperationController::class, 'store'])->na
 Route::get('/users-by-role', [UserController::class, 'getUsersByRole'])->name('users.byRole');
 Route::get('/measures/related-data', [OperationController::class, 'getRelatedData'])
      ->name('measures.relatedData');
+Route::get('/get-sub-tags', [OperationController::class, 'getSubTags']);

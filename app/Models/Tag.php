@@ -18,4 +18,9 @@ class Tag extends Model
     {
         return $this->hasMany(Option::class);
     }
+    
+    public function subTags()
+    {
+        return $this->belongsToMany(SubTag::class, 'tag_sub_tag', 'tag_id', 'sub_tag_id');
+    }
 }

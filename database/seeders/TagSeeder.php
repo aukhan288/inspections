@@ -16,43 +16,43 @@ class TagSeeder extends Seeder
          $tags = [
             [
                 'name' => 'Elevation', 
-                'haseoptons' => false
+                'haseoptions' => false
             ],
             [
                 'name' => 'Ground Floor', 
-                'haseoptons' => true
+                'haseoptions' => true
             ],
             [
                 'name' => 'First Floor', 
-                'haseoptons' => true
+                'haseoptions' => true
             ],
             [
                 'name' => 'ESH', 
-                'haseoptons' => false
+                'haseoptions' => false
             ],
             [
                 'name' => 'Loft', 
-                'haseoptons' => false
+                'haseoptions' => false
             ],
             [
                 'name' => 'RIR', 
-                'haseoptons' => false
+                'haseoptions' => false
             ],
             [
                 'name' => 'HC', 
-                'haseoptons' => false
+                'haseoptions' => false
             ],
             [
                 'name' => 'Boiler', 
-                'haseoptons' => false
+                'haseoptions' => false
             ],
             [
                 'name' => 'FTCH', 
-                'haseoptons' => false
+                'haseoptions' => false
             ],
             [
                 'name' => 'Flat Roof', 
-                'haseoptons' => false
+                'haseoptions' => false
             ],
         ];
 

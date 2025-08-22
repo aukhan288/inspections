@@ -219,9 +219,7 @@ h6 {
 /* Card */
 .card {
   margin-bottom: 30px;
-  border: none;
   border-radius: 5px;
-  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
 }
 
 .card-header,
@@ -360,7 +358,7 @@ h6 {
 
 @media (min-width: 1200px) {
   .logo {
-    width: 280px;
+    width: 240px;
   }
 }
 
@@ -380,7 +378,6 @@ h6 {
   transition: all 0.5s;
   z-index: 997;
   height: 60px;
-  box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
   background-color: #fff;
   padding-left: 20px;
   /* Toggle Sidebar Button */
@@ -602,14 +599,13 @@ h6 {
   top: 60px;
   left: 0;
   bottom: 0;
-  width: 300px;
+  width: 260px;
   z-index: 996;
   transition: all 0.3s;
   padding: 20px;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: #aab7cf transparent;
-  box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
   background-color: #fff;
 }
 
@@ -1251,7 +1247,9 @@ table {
 
 
 
-
+body{
+  background-color: #F1F5F9;
+}
 
 .dt-paging.disabled,
 .dt-paging[disabled] {

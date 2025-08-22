@@ -159,7 +159,7 @@ public function list(Request $request)
     public function getRelatedData(Request $request)
 {
     $measureIds = $request->get('measures', []);
-    $measuresData=Measure::with('questions')->whereIn('id',$measureIds)->get(['id','name','description']);
+    $measuresData=Measure::with(['questions','subTags:id,name'])->whereIn('id',$measureIds)->get(['id','name','description']);
     $tags = Tag::with('options')->get(['id', 'name','haseoptions']);
     
     return response()->json([
@@ -172,16 +172,7 @@ public function getSubTags(Request $request)
 {
     // fetch measure_id and tag_id from request
     $measureId = $request->get('measure_id'); 
-    $tagId = $request->get('tag_id'); // if needed
-
-    if (!$measureId) {
-        return response()->json(['subtags' => []]); // return empty if no measure selected
-    }
-
-    // Example using pivot measure_sub_tags
-    $subTags = SubTag::whereHas('measures', function($q) use ($measureId) {
-        $q->where('measure_id', $measureId);
-    })->get(['id', 'name']);
+    
 
     return response()->json(['subtags' => $subTags]);
 }

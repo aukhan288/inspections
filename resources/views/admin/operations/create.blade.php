@@ -180,30 +180,42 @@ $(document).ready(function () {
                                       </select>
                                     </div>
                                   </div>
-
+                                 <!-- Sub Tags container -->
+                                  <div class="col-sm-4">
+                                       <div class="mb-3">
+                      <label class="form-label">Sub Tags</label>
+                      <select id="subTag-${index}" class="form-select form-select-sm">
+                        <option value="">Select Sub Tag</option>
+                        ${(measure.sub_tags || []).map(st => {
+                            return `<option value="${st.id}">${st.name}</option>`;
+                        }).join('')}
+                      </select>
+                    </div>
+                                  </div>
                                   <!-- Options container -->
                                   <div class="col-sm-4">
                                     <div class="mb-3" id="optionDiv-${index}"></div>
                                   </div>
 
-                                  <!-- Sub Tags container -->
-                                  <div class="col-sm-4">
-                                    <div class="mb-3" id="subTagDiv-${index}"></div>
-                                  </div>
+                                 
                                 </div>
+<table class="table table-sm table-striped table-bordered">                                
 ${(measure?.questions || []).map((q, i) => {
     return `
+    <tr>
+    <td style="width:46px; text-align-center"><strong>Q ${i + 1}:</strong></td>
+    <td>
         <div class="form-check">
             <input class="form-check-input" type="checkbox" 
                    id="measure-${index}-q-${i}" 
                    value="${q.id}">
             <label class="form-check-label" for="measure-${index}-q-${i}">
-                <strong>Q ${i + 1}:</strong> ${q?.content ?? ''}
+                 ${q?.content ?? ''}
             </label>
-        </div>
+        </div></td></tr>
     `;
 }).join('')}
-
+</table>
 
 
                             </div>
@@ -274,7 +286,7 @@ $(document).on('change', '.tag-select', function () {
     // Clear existing options/subtags
     $(`#optionDiv-${index}`).empty();
     $(`#subTagDiv-${index}`).empty();
-
+    
     // --- Handle Options (existing functionality) ---
     if (tagId && hasOptions) {
         let selectedTag = allTags.find(tag => tag.id == tagId);
@@ -290,6 +302,7 @@ $(document).on('change', '.tag-select', function () {
                 </select>
             `;
             $(`#optionDiv-${index}`).html(optionHtml);
+
         }
     }
 
@@ -301,16 +314,7 @@ $(document).on('change', '.tag-select', function () {
             data: { measure_id: measureId, tag_id: tagId },
             success: function (response) {
                 if (response.subtags && response.subtags.length) {
-                    let subTagHtml = `
-                        <label class="form-label">Sub Tags</label>
-                        <select class="form-select form-select-sm subtag-select" data-index="${index}">
-                            <option value="">Select Sub Tag</option>
-                            ${response.subtags.map(sub => 
-                                `<option value="${sub.id}">${sub.name}</option>`
-                            ).join('')}
-                        </select>
-                    `;
-                    $(`#subTagDiv-${index}`).html(subTagHtml);
+                    
                 }
             },
             error: function () {

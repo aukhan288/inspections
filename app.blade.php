@@ -37,7 +37,6 @@
 <script src="{{ asset('js/select2.min.js') }}"></script>             <!-- Your custom scripts last -->
 <script src="{{ asset('js/main.js') }}"></script>             <!-- Your custom scripts last -->
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
   <!-- Template Main CSS File -->
@@ -79,7 +78,7 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <span class="d-none d-md-block dropdown-toggle ps-2">{{ Auth::user()?->name }}</span>
+            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
@@ -145,30 +144,6 @@
         <a class="nav-link " href="index.html">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
-      <li class="nav-item">
-        <a class="nav-link " href="{{ url('/measures') }}">
-          <i class="bi bi-grid"></i>
-          <span>Measures</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
-      <li class="nav-item">
-        <a class="nav-link " href="{{ url('/questions') }}">
-          <i class="bi bi-grid"></i>
-          <span>Questions</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
-      <li class="nav-item">
-        <a class="nav-link " href="{{ url('/tags') }}">
-          <i class="bi bi-grid"></i>
-          <span>Tags</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
-      <li class="nav-item">
-        <a class="nav-link " href="{{ url('/subtags') }}">
-          <i class="bi bi-grid"></i>
-          <span>Sub Tags</span>
         </a>
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">

@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('measure_installations', function (Blueprint $table) {
+        Schema::create('elements', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('measure_id');
-            $table->string('installation'); // installation info
+            $table->unsignedBigInteger('measure_id')->nullable();
+            $table->string('name'); // installation info
             $table->timestamps();
 
             $table->foreign('measure_id')

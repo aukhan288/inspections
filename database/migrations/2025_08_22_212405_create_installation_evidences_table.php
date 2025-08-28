@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('installation_evidences', function (Blueprint $table) {
            $table->id();
-            $table->unsignedBigInteger('measure_installation_id');
+            $table->unsignedBigInteger('element_id');
             $table->string('evidence'); // file path or text
             $table->boolean('is_mandatory')->default(false);
             $table->timestamps();
 
-            $table->foreign('measure_installation_id')
+            $table->foreign('element_id')
                   ->references('id')
-                  ->on('measure_installations')
+                  ->on('elements')
                   ->onDelete('cascade');
         });
     }

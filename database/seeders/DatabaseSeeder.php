@@ -26,7 +26,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TagSeeder::class);
         $this->call(OptionSeeder::class);
         $this->call(SubTagSeeder::class);
-        $this->call(MeasureSubTagSeeder::class);
-        $this->call(MeasureInstallation::class);
+        $this->call(ElementsSeeder::class);
     }
 }

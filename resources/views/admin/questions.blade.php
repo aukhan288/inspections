@@ -102,12 +102,15 @@ $(document).ready(function(){
                 searchable: false,
                 render: function (data, type, row) {
                     return `
-                        <button class="btn btn-sm btn-outline-danger delete-question" data-id="${row.id}">
+                       <div class="d-flex">
+                        <button class="btn me-2 btn-sm btn-outline-danger delete-question" data-id="${row.id}">
                             <i class="bi bi-trash"></i>
                         </button>
                         <button class="btn btn-sm btn-outline-info edit-question" data-row='${JSON.stringify(row)}'>
                             <i class="bi bi-pencil"></i>
                         </button>
+                       </div>
+                        
                     `;
                 }
             }

@@ -5,6 +5,9 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Measure;
+use App\Models\Tag;
+use App\Models\SubTag;
+use App\Models\Element;
 
 class MeasureController extends Controller
 {
@@ -85,5 +88,11 @@ public function destroy($id)
     }
 }
 
-
+ public function settings(){
+    $measures = Measure::get(['id','name']);
+    $tags = Tag::with('options')->get();
+    $subtags = SubTag::get();
+    $elements = Element::get();
+    return view('admin.settings', compact('measures','tags','subtags','elements'));
+ }
 }

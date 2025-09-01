@@ -6,7 +6,7 @@
 
           <div class="card">
             <div class="card-body">
-             <table id="measuresTable">
+             <table id="measuresTable" class="table table-striped table-bordered table-sm table-responsive">
 
              </table>
             </div>

@@ -172,6 +172,12 @@
         </a>
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">
+        <a class="nav-link " href="{{ url('/settings') }}">
+          <i class="bi bi-giere"></i>
+          <span>App Settings</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+      <li class="nav-item">
         <a class="nav-link " href="{{ url('/users') }}">
           <i class="bi bi-grid"></i>
           <span>User</span>

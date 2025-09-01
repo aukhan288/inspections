@@ -2,8 +2,10 @@
 
 @section('content')
 <div class="container">
-    <h2>Sub Tags</h2>
-    <button class="btn btn-primary mb-2" id="addSubTagBtn">Add Sub Tag</button>
+    <div class="d-flex justify-content-between align-items-center">
+        <h2>Sub Tags</h2>
+        <button class="btn btn-primary mb-2 btn-sm" id="addSubTagBtn">Add Sub Tag</button>
+    </div>
     <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -61,8 +63,8 @@ $(function(){
             {data: 'name'},
             {data: null, render: function(data){
                 return `
-                    <button class="btn btn-sm btn-info editBtn" data-id="${data.id}" data-name="${data.name}">Edit</button>
-                    <button class="btn btn-sm btn-danger deleteBtn" data-id="${data.id}">Delete</button>
+                    <button class="btn btn-sm btn-outline-info editBtn" data-id="${data.id}" data-name="${data.name}"><i class="bi bi-pencil"></i></button>
+                    <button class="btn btn-sm btn-outline-danger deleteBtn" data-id="${data.id}"><i class="bi bi-trash"></i></button>
                 `;
             }}
         ]

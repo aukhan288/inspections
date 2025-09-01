@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\admin\OperationController;
+use App\Http\Controllers\admin\MeasureController;
 
 
 
@@ -22,3 +23,4 @@ Route::get('/users-by-role', [UserController::class, 'getUsersByRole'])->name('u
 Route::get('/measures/related-data', [OperationController::class, 'getRelatedData'])
      ->name('measures.relatedData');
 Route::get('/get-sub-tags', [OperationController::class, 'getSubTags']);
+

@@ -19,6 +19,8 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/measures', [MeasureController::class, 'index'])->name('measures');
 Route::get('/measures-list', [MeasureController::class, 'list'])->name('measures.list');
 Route::delete('/measure/{id}', [MeasureController::class, 'destroy'])->name('measure.destroy');
+Route::get('/settings', [MeasureController::class, 'settings']);
+
 Route::get('/questions', [QuestionController::class, 'index'])->name('questions');
 Route::get('/questions-list', [QuestionController::class, 'list'])->name('questions.list');
 Route::delete('/questions/{id}', [QuestionController::class, 'delete']);

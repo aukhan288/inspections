@@ -95,4 +95,21 @@ public function destroy($id)
     $elements = Element::get();
     return view('admin.settings', compact('measures','tags','subtags','elements'));
  }
+
+ public function measureSetting(Request $request)
+{
+    $request->validate([
+        'measure_id' => 'required|exists:measures,id',
+    ]);
+
+    $measure = Measure::findOrFail($request->measure_id);
+
+    // Sync tags, sub tags, elements
+    $measure->tags()->sync($request->input('tags', []));
+    $measure->subTags()->sync($request->input('sub_tags', []));
+    $measure->elements()->sync($request->input('elements', []));
+
+    return back()->with('success', 'Measure assignments updated successfully!');
+}
+
 }

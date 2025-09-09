@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+<form action="{{ route('measure-setting') }}" method="POST">
+    @csrf
 <div class="row">
     <div class="col-sm-4">
         <div class="mb-3">
@@ -97,5 +99,11 @@
     </div>    
     </div>    
   </div>    
-</div>    
+</div>
+<div class="row mt-3">
+    <div class="col-sm-12">
+        <button type="submit" class="btn btn-primary">Save Settings</button>
+    </div>
+</div>
+</form>    
 @endsection
